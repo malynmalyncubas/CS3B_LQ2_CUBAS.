@@ -1,0 +1,64 @@
+Info = {
+    "student": {
+        "name": "Lewis Fonsi",
+        "address": "City of Candon, Ilocos Sur",
+        "fav_num": 25,
+        "age": 25,
+        "allowance": float(500)
+    },
+    "classmate": {
+        "name": "Andrea Andres",
+        "address": "City of Vigan, Ilocos Sur",
+        "fav_num": "18",
+        "age": "21",
+        "allowance": "700"
+    }
+}
+
+students_name_lengths = [len(Info["student"]["name"]), len(Info["classmate"]["name"])]
+
+def StudentsInfo(): 
+    if "Ilocos Sur" in Info["student"]["address"] and "Ilocos Sur" in Info["classmate"]["address"]:
+        print(f"Lewis Fomsi is from City of Candon,Ilocos Sur")
+        print(f"{Info['classmate']['name']} is from {Info['classmate']['address']}")
+
+        if students_name_lengths[0] > students_name_lengths[1]:
+            print(f"{Info['classmate']['name']} has a longer name than {Info['student']['name']} with {students_name_lengths[1]} letters over {students_name_lengths[0]} letters")
+        else:
+            print(f"{Info['student']['name']} has a longer name than {Info['classmate']['name']} with {students_name_lengths[0]} letters over {students_name_lengths[1]} letters")
+    
+    elif "Ilocos Sur" in Info["student"]["address"] and "Ilocos Sur" in Info["classmate"]["address"]:
+        sName_Split = Info["student"]["name"].split(" ")
+        cName_Split = Info["classmate"]["name"].split(" ")
+        print(f"One among {sName_Split[0]} or {cName_Split[0]} lives in Ilocos Sur")
+    
+    else:
+        print("None of the students lives in Ilocos Sur")
+
+StudentsInfo() 
+
+print(f"The addded age of Lewis Fonsi and Andrea Andres is",Info["student"]["age"] + int(Info["classmate"]["age"]))  
+print(f"The subtracted age of Lewis Fonsi and Andrea Andres is",Info["student"]["age"] - int(Info["classmate"]["age"]))  
+
+combinedWeeklyAllowance = Info["student"]["allowance"] + float(Info["classmate"]["allowance"])
+print(f"The added allowance of Lewis Fonsi and Andrea Andres is {float(combinedWeeklyAllowance):.2f} pesos")  
+classList = [Info["student"]["name"],Info["classmate"]["name"]]  
+classList_Ext = [Info["student"]["address"], Info["classmate"]["address"]]  
+classList.extend(classList_Ext)  
+
+for i in classList:
+    print(i)              
+    
+classNumbers = [Info["student"]["age"], Info["student"]["fav_num"], Info["student"]["allowance"]]  
+classNumbers.append(int(Info["classmate"]["age"]))    
+classNumbers.append(int(Info["classmate"]["fav_num"]))   
+classNumbers.append(int(Info["classmate"]["allowance"]))   
+classNumbers.sort(reverse=True) 
+for i in classNumbers:
+    print(i)           
+    
+user_name =input("Enter Your FULL NAME: ")  
+
+def quizTwo(Name):              
+    print(f"Congratulations on Quiz 2! {Name}")   
+quizTwo(user_name)
